@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- Load Angular and app components -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="./app.js"></script>
+</head>
+<body ng-app="loginApp" ng-controller="LoginController">
+  <div class="login-container">
+    <h2>Login</h2>
+    <form name="loginForm" ng-submit="submitForm()">
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" ng-model="user.username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" ng-model="user.password" required>
+      </div>
+      <button type="submit" ng-disabled="loginForm.$invalid">Login</button>
+    </form>
+    <p class="error-message" ng-if="errorMessage">{{ errorMessage }}</p>
+  </div>
+</body>
+</html>
